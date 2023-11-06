@@ -1,0 +1,46 @@
+body {
+    font-family: "Apple SD Gothic Neo", sans-serif;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.score-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: min(70%, 700px);
+    margin: 0 auto;
+}
+
+#container svg {
+    width: min(70%, 700px);
+}
+
+.score-button {
+    font-family: "Apple SD Gothic Neo", sans-serif;
+    font-size: 16px;
+    border-radius: 16px;
+    border: 1px solid black;
+    background-color: #e8e7e7;
+    height: 40px;
+}
+
+.score-button:active, .score-button:hover {
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
+text {
+    font-family: "Apple SD Gothic Neo", sans-serif;
+}
+
+
+@media screen and (max-width: 600px) {
+    .score-buttons-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
