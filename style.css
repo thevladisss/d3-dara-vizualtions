@@ -44,3 +44,27 @@ text {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+
+section {
+    display: flex;
+}
+
+section > div:first-of-type {
+    flex: 0 0 20%;
+    font-size: 14px;
+    padding: 16px;
+}
+
+section > div:first-of-type h1 {
+    margin-bottom: 16px;
+}
+
+section > div:first-of-type p {
+    background-color: #d3d3d3;
+    padding: 16px;
+}
+
+section > div:last-of-type {
+    flex: 1;
+}
