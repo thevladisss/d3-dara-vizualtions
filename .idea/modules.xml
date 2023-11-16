@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/d3-playground.iml" filepath="$PROJECT_DIR$/.idea/d3-playground.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/d3-data-visualisation.iml" filepath="$PROJECT_DIR$/.idea/d3-data-visualisation.iml" />
     </modules>
   </component>
 </project>
