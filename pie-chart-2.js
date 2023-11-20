@@ -24,8 +24,7 @@ const svg = d3.select('#container')
   .attr('width', width)
   .attr('viewBox', [0, 0, width, height])
 
-
-const pie = d3.pie().value(d => d.value)
+const pie = d3.pie().value(d => d.value).sort(d => d.value)
 
 const pieData = pie(data)
 
@@ -37,19 +36,28 @@ const labelArc = d3.arc()
   .innerRadius(0.1)
   .outerRadius(outerRadius * 1.75)
 
+const names = d3.map(data, x => x.name);
+const namesSet =   new d3.InternSet(names);
 
-const colorScale = d3.scaleLinear(d3.extent(data.map(({ value }) => value)), ['red', 'yellow'])
+const quantize = d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), namesSet.size)
+const color = d3.scaleOrdinal(names, quantize)
+
+
+// const colorScale = d3.scaleLinear(d3.extent(data.map(({ value }) => value)), ['red', 'yellow'])
 
 svg
   .append('g')
   .attr('transform', `translate(${ width / 2 },${ height / 2 })`)
   .selectAll('path')
-  .data(pieData)
+  .data(pieData.sort((a,b) => a.index - b.index))
   .join('path')
   .style('stroke', 'white')
   .style('stroke-width', 2)
   .attr('d', arc)
-  .style('fill', d => colorScale(d.value))
+  .style('fill', d => {
+    return color(d.data.name)
+    }
+  )
 
 svg
   .append('g')
